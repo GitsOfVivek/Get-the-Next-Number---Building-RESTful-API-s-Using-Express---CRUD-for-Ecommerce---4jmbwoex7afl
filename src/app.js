@@ -7,5 +7,18 @@ app.use(express.json());
 // Write a GET Request to get the next number from the input 'num'.
 // Endpoint : /api/get-next-num
 // Return the response as {message : , status: }
+app.get('/api/get-next-num', (req, res) => {
+	const { num } = req.body;
+	if (!num || typeof num !== 'number') {
+		return res.status(400).json({
+			status: 'failure',
+			message: 'Invalid data',
+		});
+	}
+	res.status(200).json({
+		status: 'success',
+		message: num + 1,
+	});
+});
 
 module.exports = app;
