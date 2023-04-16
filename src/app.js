@@ -10,7 +10,7 @@ app.use(express.json());
 app.get('/api/get-next-num', (req, res) => {
 	const { num } = req.body;
 	if (typeof num !== 'number') {
-		return res.status(400).json({
+		return res.status(200).json({
 			status: 'success',
 			message: 'Invalid data',
 		});
