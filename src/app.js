@@ -9,9 +9,9 @@ app.use(express.json());
 // Return the response as {message : , status: }
 app.get('/api/get-next-num', (req, res) => {
 	const { num } = req.body;
-	if (!num || typeof num !== 'number') {
+	if (typeof num !== 'number') {
 		return res.status(400).json({
-			status: 'failure',
+			status: 'success',
 			message: 'Invalid data',
 		});
 	}
